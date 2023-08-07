@@ -24,6 +24,14 @@ void loop() {
 
     int val = IrReceiver.decodedIRData.command;
 
+    if (val == 70)
+    {
+    digitalWrite(10,HIGH);
+    }
+    if (val == 21)
+    {
+      digitalWrite(10, LOW);
+    }
     if (val == 68)
     {
     digitalWrite(10,HIGH);
