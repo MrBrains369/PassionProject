@@ -3,7 +3,7 @@
 #define ML_Ctrl 13  //define the direction control pin of left motor
 #define ML_PWM 11   //define PWM control pin of left motor
 #define MR_Ctrl 12  //define the direction control pin of right motor
-#define MR_PWM 3   //define PWM control pin of right motor`
+#define MR_PWM 3   //define PWM control pin of right motor
 
 class Robot
 {
