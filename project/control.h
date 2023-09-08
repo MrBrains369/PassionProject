@@ -1,7 +1,18 @@
 #pragma once
 
-#include <IRremote.hpp>     // IRremote library statement
+//#define IR_SMALLD_NEC
+#define IR_SMALLD_NECx
+//#define IR_SMALLD_RC5
+//#define IR_SMALLD_SIRC12
+//#define IR_SMALLD_SIRC15
+//#define IR_SMALLD_SIRC20
+//#define IR_SMALLD_SIRC
+//#define IR_SMALLD_SAMSUNG
+//#define IR_SMALLD_SAMSUNG32
 
+#include <IRsmallDecoder.h>
+
+IRsmallDecoder irDecoder(2); //IR receiver connected to pin 2
 
 class Control
 {
@@ -18,20 +29,18 @@ public:
 
   Control()
   {
-    IrReceiver.begin(RECV_PIN, DISABLE_LED_FEEDBACK);
   }
 
   Action what()
   {
 		Action action = ACTION_NOTHING;
-		
-    if (IrReceiver.decode())
+    irSmallD_t irData;    
+
+    if(irDecoder.dataAvailable(irData))
 		{
-      IrReceiver.resume(); // Receive the next value
+      Serial.println(irData.cmd, HEX);
 
-      int val = IrReceiver.decodedIRData.command;
-
-			switch (val)
+			switch (irData.cmd)
       {
       case ACTION_FORWARD:
         action = ACTION_FORWARD;
@@ -63,5 +72,5 @@ public:
 	};
 
 private:
-  static const int RECV_PIN = A0;
+  static const int RECV_PIN = 2;
 };

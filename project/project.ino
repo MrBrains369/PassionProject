@@ -1,39 +1,36 @@
-#include "robot.h"
 #include "control.h"
+#include "robot.h"
+
+Control control;
+Robot lucas;
 
 void setup() {
   Serial.begin(9600); 
 }
 
 void loop() {
-  Control control;
-  Robot lucas;
-  
-  while (1)
-  {
-    Control::Action action = control.what();
-
-    switch (action)
+    switch (control.what())
     {
       case Control::ACTION_FORWARD:
-        Serial.println("Control::ACTION_FORWARD");
         lucas.forward();
+               Serial.println("Control::ACTION_FORWARD");
+
         break;
 
       case Control::ACTION_BACKWARDS:
         Serial.println("Control::ACTION_BACKWARDS");
         lucas.backward();
-        break;
+      break;
 
       case Control::ACTION_LEFT:
         Serial.println("Control::ACTION_LEFT");
         lucas.left();
-        break;
+      break;
 
       case Control::ACTION_RIGHT:
         Serial.println("Control::ACTION_RIGHT");
         lucas.right();
-        break;
+      break;
 
       case Control::ACTION_STOP:
         Serial.println("Control::ACTION_STOP");
@@ -42,7 +39,6 @@ void loop() {
 
       case Control::ACTION_NOTHING:
       default:
-        break;
+      break;
     }
-  }
 }
