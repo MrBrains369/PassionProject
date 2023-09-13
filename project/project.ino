@@ -12,9 +12,8 @@ void loop() {
     switch (control.what())
     {
       case Control::ACTION_FORWARD:
-        lucas.forward();
                Serial.println("Control::ACTION_FORWARD");
-
+        lucas.forward();
         break;
 
       case Control::ACTION_BACKWARDS:

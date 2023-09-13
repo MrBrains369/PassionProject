@@ -1,7 +1,7 @@
 #pragma once
 
-//#define IR_SMALLD_NEC
-#define IR_SMALLD_NECx
+#define IR_SMALLD_NEC
+//#define IR_SMALLD_NECx
 //#define IR_SMALLD_RC5
 //#define IR_SMALLD_SIRC12
 //#define IR_SMALLD_SIRC15

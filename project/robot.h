@@ -34,16 +34,16 @@ void backward()
 void left()
 {
   digitalWrite(MR_Ctrl,LOW);
-  analogWrite(MR_PWM,255);
+  analogWrite(MR_PWM,200);
   digitalWrite(ML_Ctrl,HIGH);
-  analogWrite(ML_PWM,255);
+  analogWrite(ML_PWM,200);
 }
 void right()
 {
   digitalWrite(MR_Ctrl,HIGH);
-  analogWrite(MR_PWM,255);
+  analogWrite(MR_PWM,200);
   digitalWrite(ML_Ctrl,LOW);
-  analogWrite(ML_PWM,255);
+  analogWrite(ML_PWM,200);
 }
 void stop()
 {
